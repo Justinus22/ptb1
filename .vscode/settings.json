@@ -1,0 +1,11 @@
+{
+    "files.exclude": {
+        "**/**.aux": true,
+        "**/**.gz": true,
+        "**/**.lof": true,
+        "**/**.log": true,
+        "**/**.lot": true,
+        "**/**.out": true,
+        "**/**.toc": true
+    }
+}

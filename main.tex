@@ -2,7 +2,6 @@
 \documentclass[
 	12pt, %Schriftgröße
 	a4paper,
-	liststotoc, %Inhaltsverzeichniseinträge für Listen (z.B. Abbildungen)
 	bibtotoc, %Inhaltsverzeichniseinträge f+r Quellen
 	pointlessnumbers, %Entfernt Punkt hinter Gliederungsnummern
 	ngerman, %Sprachpaket
@@ -10,6 +9,8 @@
 	%footsepline, %Footertrennlinie
 	oneside %einseitiges Druckformat %%% Unterdrücken der leeren Seite nach Titelblatt
 	]{scrbook} %Dokumentenklasse (Koma-Script)
+
+\author{Justin Becker}
 \usepackage[T1]{fontenc}
 \usepackage{float}
 \usepackage[utf8]{inputenc}
@@ -49,6 +50,8 @@
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 
+\usepackage{subfiles}
+
 \definecolor{dkgreen}{rgb}{0,.6,0}
 \definecolor{dkblue}{rgb}{0,0,.6}
 \definecolor{dkyellow}{cmyk}{0,0,.8,.3}
@@ -59,7 +62,6 @@
     numbersep=5pt,
     breaklines=true,
     frame=single,
-    escapeinside={(*@}{@*)}, %nicht anzuzeigende Ausdrücke, z.B. für Labels
     language=sh,
     basicstyle=\ttfamily\fontsize{10}{12}\selectfont,
     keywordstyle    = \color{dkblue},
@@ -157,6 +159,14 @@
 \newcommand{\jahrgang}{2023}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%>>>>>>>
 
+
+\newcommand{\quickwordcount}[1]{%
+  \immediate\write18{texcount -1 -sum -merge -q -relaxed #1.tex > #1-words.sum }%
+  \input{#1-words.sum}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%>>>>>>>
@@ -191,7 +201,8 @@ Hochschule für Wirtschaft und Recht Berlin}
     \textbf{\normalsize{Studienjahrgang:}} & \normalsize{\jahrgang} \tabularnewline
 	\textbf{\normalsize{Studiengang:}} & \normalsize{\studiengang}  \tabularnewline
 	\textbf{\normalsize{Betreuerin Unternehmen:}} & \normalsize{\betreuerUnt} \tabularnewline
-	\textbf{\normalsize{Betreuerin Hochschule:}} & \normalsize{\betreuerHS}
+	\textbf{\normalsize{Betreuerin Hochschule:}} & \normalsize{\betreuerHS} \tabularnewline
+	\textbf{\normalsize{Wortanzahl:}} & \normalsize{\quickwordcount{main}}
 	\end{tabular}
 	}
 
@@ -201,7 +212,6 @@ Hochschule für Wirtschaft und Recht Berlin}
     }
 
 \maketitle
-
 \onehalfspacing % anderthalbfacher Zeilenabstand
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -251,25 +261,22 @@ Mit sogenannten Checks und Gates werden die Richtlinien in automatisierten Entwi
 %%%%%%%%%%% Einführung
 
 \chapter{Einleitung}\label{ch:einleitung}
-
+\subfile{chapter/einleitung.tex}
 
 \chapter{Software Entwicklung bei SAP}\label{ch:sap_software_entwicklung}
+\subfile{chapter/sap_software_entwicklung.tex}
 
-Großes Product spektrum. In die Cloud
-
-\section{Cloud}\label{sec:cloud}
-
-Cloud ist wichtig!
+\section{Cloud Produkte}\label{sec:cloud}
+\subfile{section/cloud.tex}
 
 \section{CI/CD}\label{sec:cicd}
-
-Mit ganz tollen Pipelines
+\subfile{section/cicd.tex}
 
 \chapter{Code Compliance}\label{ch:code_compliance}
+\subfile{chapter/code_compliance.tex}
 
 \section{Beispiele}\label{sec:compliance_beispiele}
-
-Deshalb ein Paar beispiele dazu
+\subfile{section/compliance_beispiele.tex}
 
 \subsection{Viren}\label{subsec:viren_beispiel}
 Beispiel 1
@@ -277,33 +284,26 @@ Beispiel 1
 Beispiel 2
 
 \section{Checks}\label{sec:checks}
-Wie stelle ich Code Compliance im Kontext von CI/CD für Cloud Produkte fest?
-\subsection{Scans}\label{subsec:scans}
+\subfile{section/checks.tex}
 
-Als erstes werden scans mit externen tools durchgeführt
+\subsection{Scans}\label{subsec:scans}
+\subfile{subsection/scans.tex}
 
 \subsection{Scan Ergebnis Bewertung}\label{subsec:scan_bewertung}
-
-diese ergebnis bewertung muss durchgeführt werden
+\subfile{subsection/scan_bewertung.tex}
 
 \chapter{Herausforderungen}\label{ch:herausforderungen}
-
-Nicht alles läuft glatt
+\subfile{chapter/herausforderungen.tex}
 
 \section{Externe Tools}\label{sec:externe_tools}
-
-Kommunikation ist wichtig!
-
-Kommunikation ist wichtig!
+\subfile{section/externe_tools.tex}
 
 \section{Code Beispiel}\label{sec:code_beispiel}
-
-hier ist ein code beispiel
+\subfile{section/code_beispiel.tex}
 
 \chapter{Fazit}\label{ch:fazit}
+\subfile{chapter/fazit.tex}
 
-
-Ein runder Abschluss
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Quellen
 %%%%%%%%%%%%%%%%%%%%%%%%%
