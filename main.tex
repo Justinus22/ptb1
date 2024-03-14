@@ -1,4 +1,3 @@
-
 \documentclass[
 	12pt, %Schriftgröße
 	a4paper,
@@ -11,12 +10,14 @@
 	]{scrbook} %Dokumentenklasse (Koma-Script)
 
 \author{Justin Becker}
+\usepackage{microtype}
 \usepackage[T1]{fontenc}
 \usepackage{float}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{url}
 \usepackage{graphicx} %Bilder einfügen
+%\usepackage{hyphenat}
 %\usepackage{pdfpages} %PDF einfügen
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage[right]{eurosym} %Euro-Zeichen
@@ -41,6 +42,10 @@
 	%section      %im Inhaltsverzeichnis auf section-Ebene erscheinen
 	%]
 %{glossaries}
+
+
+\usepackage[]{bookmark}
+\usepackage{scrhack}
 
 \usepackage{listings,xcolor} %Codeanzeige
 \usepackage[normalem]{ulem}
@@ -72,7 +77,7 @@
     emphstyle       =[1]\color{black},
     emph            =[2]{if,and,or,else},
     emphstyle       =[2]\color{dkyellow}
-    } 
+} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Sonderformatierung
@@ -82,12 +87,14 @@
 \geometry{verbose,tmargin=3cm,bmargin=2cm,lmargin=3cm,rmargin=3cm} 
 
 % Hurenkinder und Schusterjungen verhindern (Ja, das heißt wirklich so!!!)
-\clubpenalty = 10000 \widowpenalty = 10000 \displaywidowpenalty = 10000 
+\clubpenalty= 10000
+\widowpenalty= 10000
+\displaywidowpenalty= 10000 
 
-\newcommand{\footfigref}[1]{\footnote{Abb. \ref{#1} auf Seite \pageref{#1}}}
+\newcommand{\footfigref}[1]{\footnote{Abb.\ref{#1} auf Seite\pageref{#1}}}
 
 %% Bei Referenzen im Text wird jetzt bei allen Ebenen "Kapitel" vorgestellt, z.b. Kapitel 2, Kapitel 2.2, Kapitel 6.3.2
-\addto\extrasngerman{%
+\addto\extrasngerman{
     \def\sectionautorefname{Kapitel}%
     \def\subsectionautorefname{Kapitel}%
     \def\subsubsectionautorefname{Kapitel}%
@@ -100,17 +107,17 @@
 
 \RedeclareSectionCommand[%
     beforeskip=0.5\baselineskip,
-    afterskip=0.5\baselineskip
+    afterskip=0.5\baselineskip,
 ]{chapter}
 
 \RedeclareSectionCommand[%
     beforeskip=0.5\baselineskip,
-    afterskip=0.5\baselineskip
+    afterskip=0.5\baselineskip,
 ]{section}
 
 \RedeclareSectionCommand[%
     beforeskip=0.1\baselineskip,
-    afterskip=0.1\baselineskip
+    afterskip=0.1\baselineskip,
 ]{subsection}
 
 \RedeclareSectionCommand[%
@@ -126,14 +133,15 @@
 %% Verkleinerung der Textgröße unter Abbildungen
 \addtokomafont{caption}{\small}
 
-% falsche Default-Silbentrennung überschreiben
-\include{hyphenation}
+
 
 % Den Punkt am Ende der Glossareinträge deaktivieren
 \renewcommand*{\glspostdescription}{}
 
 %Glossar-Befehle anschalten
-%\makeglossaries
+%\makeglossaries{}
+\makenoidxglossaries{}
+\loadglsentries{glossar.tex}
 
 % sorgt dafür, dass bei Leerzeile die Einrückung verhindert und stattdessen eine Leerzeile eingefügt wird % erspart bigskips und erhöht die Lesbarkeit im LaTeX-Text 
 \KOMAoptions{parskip=full*}
@@ -141,17 +149,16 @@
 % ändert Titelschriftart in Serifen-Normalschriftart
 \addtokomafont{disposition}{\rmfamily} 
 
-\makenoidxglossaries
 
-\loadglsentries{glossar.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\studentName}{Justin Becker}
+\newcommand{\matrnr}{1233455}
 \newcommand{\type}{Praxistransferbericht}
 \newcommand{\topic}{Einbindung von Code Compliance Checks in der SAP Software Entwicklung}
 \newcommand{\studiengangh}{Informatik}
-\newcommand{\fachbereich}{FB2: Duales Studium - Technik}
+\newcommand{\fachbereich}{FB2: Duales Studium --- Technik}
 \newcommand{\studiengang}{Informatik}
 \newcommand{\company}{SAP SE}
 \newcommand{\betreuerHS}{Lara Maria Stricker}
@@ -169,6 +176,11 @@
 
 \begin{document}
 
+% falsche Default-Silbentrennung überschreiben
+%\include{hyphenation}
+
+\hyphenpenalty=10000 \spaceskip=0.3em plus 4em minus 0.2em
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%>>>>>>>
 %%%%%%%%%%% Titelblatt
 
@@ -181,30 +193,29 @@
 \begingroup
 	\centering
 	\linespread{1.5}
-	\huge\topic
+	\huge\topic%
 \endgroup
 \endgraf\rule{\textwidth}{.4pt}
 }
  
 %%Eigentlich nicht besonders schön, aber Koma erlaubt die Anordnung eines weiteren Felder (hier: Fachbereich) nicht
-\date{\normalsize vorgelegt am 8. August 9834\\ \textbullet \\ Fachbereich Duales Studium Wirtschaft / Technik \\
+\date{\normalsize vorgelegt am 8. August 9834\\ \textbullet{} \\ Fachbereich Duales Studium Wirtschaft / Technik \\
 Hochschule für Wirtschaft und Recht Berlin}
 %% \date muss leer angegeben werden, um die Default-Datumsanzeige zu unterdrücken
 
 \publishers{
 	\begin{tabular}{l l}
-	\textbf{\normalsize{}} & \normalsize{}  \tabularnewline
-	\textbf{\normalsize{}} & \normalsize{}  \tabularnewline
-	\textbf{\normalsize{Name:}} & \normalsize{\studentName}  \tabularnewline
-	\textbf{\normalsize{Ausbildungsbetrieb:}} & \normalsize{\company}  \tabularnewline
-    \textbf{\normalsize{Fachbereich:}} & \normalsize{\fachbereich} \tabularnewline
-    \textbf{\normalsize{Studienjahrgang:}} & \normalsize{\jahrgang} \tabularnewline
-	\textbf{\normalsize{Studiengang:}} & \normalsize{\studiengang}  \tabularnewline
-	\textbf{\normalsize{Betreuerin Unternehmen:}} & \normalsize{\betreuerUnt} \tabularnewline
-	\textbf{\normalsize{Betreuerin Hochschule:}} & \normalsize{\betreuerHS} \tabularnewline
+	\textbf{\normalsize{Name:}} & \normalsize{\studentName}  \tabularnewline%
+    \textbf{\normalsize{Matrikelnummer:}} & \normalsize{\matrnr}  \tabularnewline%
+	\textbf{\normalsize{Ausbildungsbetrieb:}} & \normalsize{\company}  \tabularnewline%
+    \textbf{\normalsize{Fachbereich:}} & \normalsize{\fachbereich} \tabularnewline%
+    \textbf{\normalsize{Studienjahrgang:}} & \normalsize{\jahrgang} \tabularnewline%
+	\textbf{\normalsize{Studiengang:}} & \normalsize{\studiengang}  \tabularnewline%
+	\textbf{\normalsize{Betreuerin Unternehmen:}} & \normalsize{\betreuerUnt} \tabularnewline%
+	\textbf{\normalsize{Betreuerin Hochschule:}} & \normalsize{\betreuerHS} \tabularnewline%
 	\textbf{\normalsize{Wortanzahl:}} & \normalsize{\quickwordcount{main}}
 	\end{tabular}
-	}
+}
 
 \titlehead{\begin{center}
     \includegraphics[scale=0.7]{bilder/header_logo.PNG}
@@ -212,7 +223,7 @@ Hochschule für Wirtschaft und Recht Berlin}
     }
 
 \maketitle
-\onehalfspacing % anderthalbfacher Zeilenabstand
+\onehalfspacing% anderthalbfacher Zeilenabstand
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Dokumenteninhalt START
@@ -220,21 +231,9 @@ Hochschule für Wirtschaft und Recht Berlin}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Abstract
-\chapter*{Abstract}
-\addcontentsline{toc}{chapter}{Abstract}
-
-Im Unternehmen SAP SE besteht die Notwendigkeit, dass alle Software-Entwickler die globale Entwicklungsrichtlinie von SAP und insbesondere die in dieser Richtlinie festgelegten Regeln, die sogenannten Unternehmensanforderungen befolgen.
-
-Die Anforderungen umfassen unter anderem Regeln zum Qualitätsmanagement, zur Export Kontrollklassifizierung, Opensource Lizenzvalidierung und diverse Überprüfungen der Sicherheitsanforderungen.
-
-Die Einhaltung dieser Regeln und damit die Einhaltung der SAP Global Development-Richtlinie für alle Entwicklungseinheiten ist ungemein wichtig und obligatorisch, um jegliche rechtlichen und finanziellen Risiken, sowie Ansehensverluste für das Unternehmen zu vermeiden.
-
-Die SAP-Abteilung „Common Service Infrastructure“ unterstützt Service- und Produktteams beim Programmieren, Versenden und Ausführen ihrer Services und Produkte in der Cloud.
- Es bietet ein Portfolio von Diensten, die eine Plattform für die Entwicklung, Veröffentlichung und den Betrieb von Cloud-nativen, konformen und produktionsbereiten Diensten und Anwendungen bilden.
-
-Die Dienste zur Überprüfung der SAP-Entwicklungsrichtlinien werden vom Team „HANA \& HANA Cloud Quality Engineering“ entwickelt und betreut.
-Mit sogenannten Checks und Gates werden die Richtlinien in automatisierten Entwicklungs- und Bereitstellungsprozessen überprüft und die SAP konforme Auslieferung neuer oder aktualisierter Software, z.B. zur Fehlerbehebung, gewährleistet.
- Auf Grund hoher Dynamik in der Cloud Service Entwicklung und dadurch resultierenden geänderten Testanforderungen, sowie neuen oder verbesserten Tools zur Softwareüberprüfung, welche von den Checks angesteuert werden, müssen sowohl neue Checks und Gates etabliert als auch vorhandene Checks angepasst werden.
+\chapter*{Zusammenfassung}
+\addcontentsline{toc}{chapter}{Zusammenfassung}
+\subfile{chapter/abstract.tex}
 
 \pagenumbering{Roman} % römische Seitenzahlen
 
@@ -246,11 +245,13 @@ Mit sogenannten Checks und Gates werden die Richtlinien in automatisierten Entwi
 \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 
 \listoffigures
-\listoftables
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 
 \addcontentsline{toc}{chapter}{Akronyme}
-\printnoidxglossaries
+\printnoidxglossaries{}
 
 \clearpage
 
@@ -313,30 +314,9 @@ Beispiel 2
 \bibliographystyle{hwrbib}
 %% \bibliographystyle{alpha} %% tu es nicht, niemals, das ist eklig, nicht einkommentieren
 
-\chapter*{Ehrenwörtliche Erklärung}
+\chapter{Ehrenwörtliche Erklärung}
 \addcontentsline{toc}{chapter}{Ehrenwörtliche Erklärung}
-
-% Keine Kopf- und Fußzeilen ausgeben
-\thispagestyle{empty}
-% Aber trotzdem ins Inhaltsverzeichnis aufnehmen
-%\addcontentsline{toc}{section}{Eidesstattliche Erklärung}
-
-% Hier der offizielle Text der eidesstattlichen Erklärung
-Ich erkläre ehrenwörtlich:
-\begin{enumerate}
-	\item dass ich meine Bachelor-Thesis selbstständig verfasst habe,
-	\item dass ich die Übernahme wörtlicher Zitate aus der Literatur sowie die Verwendung der Gedanken anderer Autoren an den entsprechenden Stellen innerhalb der Arbeit gekennzeichnet habe,
-	\item dass ich meine Bachelor-Thesis bei keiner anderen Prüfung vorgelegt habe.
-\end{enumerate}
-Ich bin mir bewusst, dass eine falsche Erklärung rechtliche Folgen haben wird.
-% Etwas Abstand für die Unterschrift
-\vspace{2cm}
-
-% Hier kommt die Unterschrift drüber
-\begin{tabular}{lp{4em}l} 
- \hspace{5cm}   && \hspace{4cm} \\\cline{1-1}\cline{3-3} 
- Ort, Datum     && \studentName
-\end{tabular}
+\subfile{chapter/ehrenwörtliche_erklärung.tex}
 
 \end{document}
 

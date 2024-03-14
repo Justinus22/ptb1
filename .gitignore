@@ -11,7 +11,7 @@
 *.cb
 *.cb2
 .*.lb
-
+*.ist
 ## Intermediate documents:
 *.dvi
 *.xdv
@@ -25,7 +25,9 @@
 .pdf
 
 ## git access
-./token
+**/token
+##docx text korrekur
+*.docx
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
 *.bcf
