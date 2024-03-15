@@ -1,8 +1,8 @@
 \documentclass[
 	12pt, %Schriftgröße
 	a4paper,
-	bibtotoc, %Inhaltsverzeichniseinträge f+r Quellen
-	pointlessnumbers, %Entfernt Punkt hinter Gliederungsnummern
+	bibliography=totoc, %Inhaltsverzeichniseinträge f+r Quellen
+	numbers=noenddot, %Entfernt Punkt hinter Gliederungsnummern
 	ngerman, %Sprachpaket
 	headsepline, %Headertrennlinie
 	%footsepline, %Footertrennlinie
@@ -22,7 +22,6 @@
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage[right]{eurosym} %Euro-Zeichen
 \usepackage{amssymb}
-\usepackage{cite} %Quellenangaben
 \usepackage{setspace} % Zeilenabstand
 \usepackage[ 
    colorlinks,        % Links ohne Umrandungen in zu wählender Farbe 
@@ -56,6 +55,9 @@
 \counterwithout{table}{chapter}
 
 \usepackage{subfiles}
+
+\usepackage{biblatex}
+\addbibresource{lit.bib}
 
 \definecolor{dkgreen}{rgb}{0,.6,0}
 \definecolor{dkblue}{rgb}{0,0,.6}
@@ -231,8 +233,8 @@ Hochschule für Wirtschaft und Recht Berlin}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Abstract
-\chapter*{Zusammenfassung}
-\addcontentsline{toc}{chapter}{Zusammenfassung}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
 \subfile{chapter/abstract.tex}
 
 \pagenumbering{Roman} % römische Seitenzahlen
@@ -282,9 +284,9 @@ Hochschule für Wirtschaft und Recht Berlin}
 \subsection{Viren}\label{subsec:viren_beispiel}
 Beispiel 1
 \subsection{code smells}\label{subsec:codesmells_beispiel}
-Beispiel 2
+Beispiel 2 \cite{CorporateFactSheet}
 
-\section{Checks}\label{sec:checks}
+\section{Checks}\label{se~:checks}
 \subfile{section/checks.tex}
 
 \subsection{Scans}\label{subsec:scans}
@@ -309,9 +311,10 @@ Beispiel 2
 % Quellen
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-\bibliography{literatur}
+\printbibliography
 
-\bibliographystyle{hwrbib}
+
+
 %% \bibliographystyle{alpha} %% tu es nicht, niemals, das ist eklig, nicht einkommentieren
 
 \chapter{Ehrenwörtliche Erklärung}
