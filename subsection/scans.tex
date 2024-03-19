@@ -1,7 +1,20 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-Als erstes werden scans mit externen tools durchgeführt
+Das Scannen von Code wird von externen Tools übernommen.
+Dafür gibt es in dem Bereich der Sicherheitsanalyse von Code eine Reihe von geeigneter Tools wie zum Beispiel Checkmarx oder Fortify, die von dem \gls{HHCQE} Team genutzt werden.
+
+Solche Tools würden zum Beispiel ein Risikostelle wie in Abbildung \ref{fig:codecompliance} erkennen und als \enquote{Improper\_Resource\_Shutdown\_or\_Release} einordnen.
+\cite{SASTTools}
+
+Damit wird von dem Scan eine Datei erzeugt, die enthält welche Risikostellen gefunden wurden.
+Zudem ist in solcher Datei meist eine Priorisierung, wie schwerwiegend die Risikostellen sind, enthalten.
+
+Diese Datei stellt nun das Ergebnis des Scans da und liegt im \gls{glos:JSON} Format vor.
+
+Außerdem besitzen externe Tools wie Checkmarx oft eine Weboberfläche, in der Details eines Scans mit den genauen Zeilen an Code, die Risikostellen sind, eingesehen werden können.
+In diesen Rahmen gibt es dann die Möglichkeit diese Risikostellen als unbedenklich zu markieren.
+Richtlinien beziehen sich oft darauf, wie viele von den Risikostellen als unbedenklich eingestuft werden müssen.
 
 \end{document}
 

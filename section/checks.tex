@@ -1,11 +1,16 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-Die \glspl{CCC} liefern in \gls{CI/CD} \glspl{glos:pipeline} ein Ergebnis, ob der Code, der mit der \gls{glos:pipeline} ausgeliefert werden soll, compliant oder nicht ist.
+Damit ergibt sich als Ziel von den \glspl{CCC} in den \gls{CI/CD} \glspl{glos:pipeline}, dass sie das Ergebnis liefern sollen, ob der Code, der mit der \gls{glos:pipeline} ausgeliefert werden soll, allen gegebenen Richtlinien folgt und damit compliant ist.
 Außerdem müssen sie eine Begründung für diese Entscheidung an die Entwickler liefern, damit dieser seinen Code entsprechend verbessern kann.
+\newpage
+Dafür sind \glspl{CCC} in zwei Teile aufgeteilt:
+\begin{itemize}
+    \item ein Scan, der den Code analysiert und feststellt welche -----Richtlinien relevante Risikostellen------- u.\"a. existieren 
+    \item die Bewertung von den Ergebnissen diesen Scans nach den Richtlinien
+  \end{itemize}
 
-Dafür sind \glspl{CCC} in zwei Teile aufgeteilt. 
-In einen Scan, der den Code analysiert, und feststellt welche Unsicherheiten u.\"a. existieren und die Bewertung von diesen Scan Ergebnissen nach den Richtlinien.
+Da die Richtlinien Anforderungen unterschiedlichster Themenbereich wie zum Beispiel der Export Kontrollklassifizierung bis zu Sicherheit enthalten, wird die Gesamtfeststellung - compliant oder nicht - in mehrere Teilchecks unterteilt, sodass solch ein Check einen Aspekt der Richtlinien übernimmt. 
 
 \end{document}
 
