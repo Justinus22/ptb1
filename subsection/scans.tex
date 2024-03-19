@@ -2,12 +2,14 @@
 \begin{document}
 
 Das Scannen von Code wird von externen Tools übernommen.
-Dafür gibt es in dem Bereich der Sicherheitsanalyse von Code eine Reihe von geeigneter Tools wie zum Beispiel Checkmarx oder Fortify, die von dem \gls{HHCQE} Team genutzt werden.
+Zum aufrufen dieser Tools wird eine interne Version des Project Piper genutzt. Piper vereinfacht unterschiedlichste Schritte, die in einer \gls{glos:pipeline} ausgeführt werden können -- so zum Beispiel auch das aufrufen von eben solchen externen Scan Tools. 
 
-Solche Tools würden zum Beispiel ein Risikostelle wie in Abbildung \ref{fig:codecompliance} erkennen und als \enquote{Improper\_Resource\_Shutdown\_or\_Release} einordnen.
+Es gibt zum Beispiel in dem Bereich der Sicherheitsanalyse von Code eine Reihe geeigneterTools wie Checkmarx oder Fortify, die unter anderem in dem \gls{HHCQE} Team genutzt werden.
 \cite{SASTTools}
+Solche Tools würden ein Risikostelle wie in Abbildung \ref{fig:codecompliance} erkennen und als \enquote{Improper\_Resource\_Shutdown\_or\_Release} einordnen.
+\cite{SecurityVulnerabilities}
 
-Damit wird von dem Scan eine Datei erzeugt, die enthält welche Risikostellen gefunden wurden.
+Dann wird von dem Scan eine Datei erzeugt, die enthält welche Risikostellen gefunden wurden.
 Zudem ist in solcher Datei meist eine Priorisierung, wie schwerwiegend die Risikostellen sind, enthalten.
 
 Diese Datei stellt nun das Ergebnis des Scans da und liegt im \gls{glos:JSON} Format vor.

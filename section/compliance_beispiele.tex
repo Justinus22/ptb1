@@ -1,15 +1,20 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-Ein konkretes Beispiel Code der nicht compliant ist, ist der in Abbildung \ref{fig:codecompliance} zu sehende \gls{glos:CodeSmell}
+Ein konkretes Beispiel Code der ein Sicherheitsrisiko ist und damit eventuell für nicht compliance verantwortlich ist, ist die in Abbildung \ref{fig:codecompliance} dargestellte Funktion.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=.21]{bilder/SAPLogo.png}
-    \caption{Code, der nicht Compliant ist, wegen einem \gls{glos:CodeSmell}}
-    \footnotesize Quelle: \url{didadudada}
+    \includegraphics[scale=1]{bilder/CodeScreenShot.png}
+    \caption{Risikocode, da eine geöffnete Datei nicht richtig geschlossen wird (selbst geschrieben)}
+    
     \label{fig:codecompliance}
 \end{figure}
+
+Solche Fehler könnten zu unerwartetem Verhalten während der Laufzeit führen.
+Deshalb müssen sie bereits davor erkannt werden.
+Da eine Überprüfung per Hand fehleranfällig und langsam ist, braucht es hierfür eine Automatisierung.
+Diese Automatisierung wird Check genannt.
 \end{document}
 
 
