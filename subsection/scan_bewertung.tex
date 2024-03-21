@@ -2,14 +2,14 @@
 \begin{document}
 
 In der Bewertung der Ergebnisse muss nun auf Grundlage der erzeugten Datei die Entscheidung getroffen, ob der Code compliant oder nicht ist.
-Bisher wurde diese Entscheidung nicht klar nach den Richtlinien getroffen.
-Stattdessen wurde sie von Piper übernommen.
-Problem ist, dass dieser Prozess mit Piper nicht durchsichtig ist und keine Verantwortungen eindeutig geklärt sind.
+Bisher wurde diese Entscheidung nicht eindeutig nach den Richtlinien getroffen.
+Stattdessen wurde sie weitgehend von Piper übernommen.
+Problem ist, dass dieser Prozess mit Piper nicht durchsichtig ist und keine Verantwortungen abgeklärt sind.
 Es bedarf einer Lösung, die flexibel, falls sich die Anforderungen an Code und damit die Richtlinien ändern, und nachvollziehbar, sodass immer klar ist auf welcher Grundlage die Entscheidung getroffen wurde, ist.
 
 Von der SAP Abteilung Hyperspace werden seit neusten Richtlinien in einem \gls{glos:PolicyAsCode} Format bereitgestellt.
 Diese Richtlinien sind in der sogenannten Rego Programmiersprache formuliert, die mit dem \gls{OPA} angewandt werden können.
-Dieser \gls{OPA} wird wiederum von Hyperspace genutzt.
+Dieser \gls{OPA} wird von Hyperspace genutzt.
 
 \begin{figure}[ht]
     \centering
@@ -26,7 +26,7 @@ Damit is der \gls{OPA} mit Rego für die genannten Anforderungen geeignet.
 Genutzt werden können diese Richtlinien von Hyperspace in zwei Schritten.
 
 Als erstes wird die Ergebnisdatei des Scans auf einen Server von Hyperspace hochgeladen.
-Außerdem ist in dem Upload noch eine sogenannter Policy Key (Deutsch: Richtlinien Schlüssel) enthalten, der eindeutig zuordnet, welche Richtlinie für das Ergebnis genutzt werden soll.
+In dem Upload ist noch eine sogenannter Policy Key (Deutsch: Richtlinien Schlüssel) enthalten, der eindeutig zuordnet, welche Richtlinie für das Ergebnis genutzt werden soll.
 So können dann die Ergebnisse des Scans bei Hyperspace mit Hilfe von \gls{OPA} ausgewertet werden.
 
 Im zweiten Schritt müssen die Auswertungsergebnisse dann innerhalb der \gls{glos:pipeline} nutzbar gemacht werden.
@@ -39,7 +39,6 @@ Wenn es nach dem fünften Versuch kein Ergebnis gibt, bricht die Bewertung ab un
 Damit für den Endbenutzer dieser Entscheidungsfindungsprozess nachvollziehbar bleibt, werden mit einer dritten Anfrage an den Hyperspace Server Details zu der Auswertung abgerufen.
 Diese Details werden dem Benutzer zusätzlich zu dem eigentlichen Auswertungsergebnis - compliant oder nicht - angezeigt.
 Sie enthalten Informationen wie den Namen der Richtlinie, eine Kurzbeschreibung, die URL zu der genutzten Richtlinie im \gls{glos:PolicyAsCode} Format sowie noch einiges mehr.
-
 
 
 \end{document}
