@@ -9,7 +9,6 @@
 	oneside %einseitiges Druckformat %%% Unterdrücken der leeren Seite nach Titelblatt
 	]{scrbook} %Dokumentenklasse (Koma-Script)
 
-\author{Justin Becker}
 \usepackage{microtype}
 \usepackage[T1]{fontenc}
 \usepackage{float}
@@ -56,7 +55,7 @@
 
 \usepackage{subfiles}
 
-\usepackage{biblatex}
+\usepackage[style=alphabetic]{biblatex}
 \addbibresource{lit.bib}
 
 \definecolor{dkgreen}{rgb}{0,.6,0}
@@ -199,9 +198,8 @@
 }
  
 %%Eigentlich nicht besonders schön, aber Koma erlaubt die Anordnung eines weiteren Felder (hier: Fachbereich) nicht
-\date{\normalsize vorgelegt am 8. August 9834\\ \textbullet{} \\ Fachbereich Duales Studium Wirtschaft / Technik \\
-Hochschule für Wirtschaft und Recht Berlin}
-%% \date muss leer angegeben werden, um die Default-Datumsanzeige zu unterdrücken
+\date{\vspace{-2cm}\normalsize vorgelegt am \today \vspace{1cm}}
+%% \date muss leer angegeben werden, um die Default-Datumsanzeige
 
 \publishers{
 	\begin{tabular}{l l}
@@ -215,7 +213,19 @@ Hochschule für Wirtschaft und Recht Berlin}
 	\textbf{\normalsize{Betreuerin Hochschule:}} & \normalsize{\betreuerHS} \tabularnewline%
 	\textbf{\normalsize{Wortanzahl:}} & \normalsize{\quickwordcount{main}}
 	\end{tabular}
+
+    \vspace{15mm}
+    \normalsize{Von der betrieblichen Betreuung zur Kenntnis genommen:}
+    \vspace{10mm}
+    
+    \begin{tabular}{lp{2em}l} 
+	    \hspace{4cm}   && \hspace{4cm} \\\cline{1-1}\cline{3-3} 
+        \betreuerUnt     && \studentName{}
+\end{tabular}
+
+
 }
+
 
 \titlehead{\begin{center}
     \includegraphics[scale=0.7]{bilder/header_logo.PNG}
@@ -223,6 +233,9 @@ Hochschule für Wirtschaft und Recht Berlin}
     }
 
 \maketitle
+
+
+
 \onehalfspacing% anderthalbfacher Zeilenabstand
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
