@@ -6,7 +6,7 @@ Dazu gehören zum Beispiel das Project Piper, interne GitHub Varianten und unter
 
 Zu Beginn der Praxisphase wurde ein Plan zur Nutzung der Hyperspace Richtlinien aufgestellt, der da war, dass die Evaluation der Scan Ergebnisse direkt in der Pipeline stattfindet und nicht bei Hyperspace.
 Dafür sollten die Richtlinien im \gls{glos:PolicyAsCode} Format von einem Hyperspace GitHub Repository in den \gls{glos:pipeline} Workspace heruntergeladen werden.
-Danach wird die Ergebnisdatei des Scans mit \gls{OPA} gegen die heruntergeladene Richtlinie local evaluiert.
+Danach wird die Ergebnisdatei des Scans mit \gls{OPA} gegen die heruntergeladene Richtlinie lokal evaluiert.
 Dieser Vorgang hat den Vorteil, dass die Auswertungsergebnisse zuverlässig und schnell verfügbar sind.
 
 In der Vorstellung dieses Prozesses nach guten zwei Wochen Entwicklung der Anwendung für die neu verfügbaren \gls{glos:PolicyAsCode} Richtlinien gegenüber Hyperspace, wurde vom Hyperspace Team angemerkt, dass diese Idee nicht skalieren wird.
@@ -15,7 +15,7 @@ So gibt es keinen zentralen Anlaufpunkt von dem man Richtlinien herunterladen k�
 
 Deshalb wurde dann der in diesem Bericht unter Kapitel \ref{subsec:scan_bewertung} vorgestellte Lösungsansatz umgesetzt.
 Mitzunehmen aus dieser Erfahrung ist, dass man bei der Nutzung von externen Tools möglichst viel über dessen Funktionsweise herausfinden sollte.
-Direkte Kommunikation und am Besten Absprache mit den Teams über die Nutzung kann viel Zeit sparen und ist ein gute Weg dafür.
+Direkte Kommunikation und - am besten - Absprache mit den Teams über die Nutzung kann viel Zeit sparen und ist ein Möglichkeit, um diesem Problem aus dem Weg zu gehen.
 
 
 \end{document}
