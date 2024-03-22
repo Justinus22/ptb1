@@ -1,6 +1,21 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-Kommunikation ist key!
-\end{document}
+Im Verlauf der Praxisphase wurde mit einer breiten Auswahl an Tools von anderen Teams gearbeitet.
+Dazu gehören zum Beispiel das Project Piper, interne GitHub Varianten und unter anderem auch die Richtlinien, die von dem Hyperspace Team zur Verfügung gestellt wurden.
 
+Zu Beginn der Praxisphase wurde ein Plan zur Nutzung der Hyperspace Richtlinien aufgestellt, der da war, dass die Evaluation der Scan Ergebnisse direkt in der Pipeline stattfindet und nicht bei Hyperspace.
+Dafür sollten die Richtlinien im \gls{glos:PolicyAsCode} Format von einem Hyperspace GitHub Repository in den \gls{glos:pipeline} Workspace heruntergeladen werden.
+Danach wird die Ergebnisdatei des Scans mit \gls{OPA} gegen die heruntergeladene Richtlinie local evaluiert.
+Dieser Vorgang hat den Vorteil, dass die Auswertungsergebnisse zuverlässig und schnell verfügbar sind.
+
+In der Vorstellung dieses Prozesses nach guten zwei Wochen Entwicklung der Anwendung für die neu verfügbaren \gls{glos:PolicyAsCode} Richtlinien gegenüber Hyperspace, wurde vom Hyperspace Team angemerkt, dass diese Idee nicht skalieren wird.
+Grund dafür ist, dass nicht alle Richtlinien wie angenommen in einem GitHub Repository zu Verfügung stehen werden, sonder verteilt sind.
+So gibt es keinen zentralen Anlaufpunkt von dem man Richtlinien herunterladen könnte.
+
+Deshalb wurde dann der in diesem Bericht unter Kapitel \ref{subsec:scan_bewertung} vorgestellte Lösungsansatz umgesetzt.
+Mitzunehmen aus dieser Erfahrung ist, dass man bei der Nutzung von externen Tools möglichst viel über dessen Funktionsweise herausfinden sollte.
+Direkte Kommunikation und am Besten Absprache mit den Teams über die Nutzung kann viel Zeit sparen und ist ein gute Weg dafür.
+
+
+\end{document}
