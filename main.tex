@@ -32,7 +32,7 @@
 \usepackage[figure]{hypcap}
 \usepackage[ngerman]{translator}
 \usepackage{blindtext} % Lorem-Ipsum-Plugin
-\usepackage[acronym, nonumberlist]{glossaries} %% use after hyperref %Glossar-Paket laden
+\usepackage[acronym, nonumberlist, toc, translate=babel]{glossaries} %% Glossar mit Akronymen laden und mit babel auf deutsch anzeigen
 %\usepackage[
 	%nonumberlist, %keine Seitenzahlen anzeigen
 	%acronym,      %ein Abkürzungsverzeichnis erstellen
@@ -138,7 +138,6 @@
 \renewcommand*{\glspostdescription}{}
 
 %Glossar-Befehle anschalten
-%\makeglossaries{}
 \makenoidxglossaries{}
 \loadglsentries{glossar.tex}
 
@@ -178,6 +177,7 @@
 % falsche Default-Silbentrennung überschreiben
 %\include{hyphenation}
 
+% keine Silbentrennung sonder space zwischen den Wörtern nutzen, wie Blick Absatz in word 
 \spaceskip=0.3em plus 4em minus 0.2em
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%>>>>>>>
@@ -235,8 +235,8 @@
 \maketitle
 
 
-
-\onehalfspacing% anderthalbfacher Zeilenabstand
+% anderthalbfacher Zeilenabstand verwenden
+\onehalfspacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Dokumenteninhalt START
@@ -245,7 +245,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Abstract
 \chapter*{Zusammenfassung}
-\addcontentsline{toc}{chapter}{Abstract}
+\addcontentsline{toc}{chapter}{Zusammenfassung}
 \subfile{chapter/abstract.tex}
 
 \pagenumbering{Roman} % römische Seitenzahlen
@@ -260,12 +260,18 @@
 \listoffigures
 \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 
+\section*{Hinweis}
+
+Aus Gründen der besseren Lesbarkeit wird im Text verallgemeinernd die männliche Form verwendet.
+Diese Formulierungen umfassen gleichermaßen weibliche und männliche Personen.
+\clearpage
+
+%Tabellenverzeichnis, falls nötig: 
+
 %\listoftables
 %\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 
-\addcontentsline{toc}{chapter}{Glossar}
 
-\addcontentsline{toc}{chapter}{Akronyme}
 \printnoidxglossaries{}
 
 \clearpage
@@ -318,7 +324,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Quellen
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\spaceskip=0.3em plus 0.3em minus 0.2em
+\spaceskip=0.3em plus 0.5em minus 0.2em
 \printbibliography
 
 %% \bibliographystyle{alpha} %% tu es nicht, niemals, das ist eklig, nicht einkommentieren
