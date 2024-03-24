@@ -2,19 +2,19 @@
 \begin{document}
 
 Das Scannen von Code wird von externen Tools übernommen.
-Zum aufrufen dieser Tools wird eine interne Version des Project Piper genutzt. Piper vereinfacht unterschiedlichste Schritte, die in einer \gls{glos:pipeline} ausgeführt werden können.
-So zum Beispiel auch das aufrufen von externen Scan Tools. 
+Zum Aufrufen dieser Tools wird eine interne Version des Project Piper genutzt. Piper vereinfacht unterschiedlichste Schritte, die in einer \gls{glos:pipeline} ausgeführt werden können.
+So beispielweise auch das Aufrufen von externen Scan Tools. 
 
-Es gibt beispielweise in dem Bereich der Sicherheitsanalyse von Code eine Reihe geeigneter Tools wie Checkmarx oder Fortify, die unter anderem in dem \gls{HHCQE} Team genutzt werden \cite{SASTTools}.
-Solche Tools würden ein Risikostelle wie in Abbildung \ref{fig:codecompliance} erkennen und als \enquote{Improper\_Resource\_Shutdown\_or\_Release} einordnen \cite{SecurityVulnerabilities}.
+Es gibt im Bereich der Sicherheitsanalyse von Code eine Reihe geeigneter Tools wie Checkmarx oder Fortify, die unter anderem vom \gls{HHCQE}-Team genutzt werden \cite{SASTTools}.
+Solche Tools würden eine Risikostelle wie in Abbildung \ref{fig:codecompliance} erkennen und als \enquote{Improper\_Resource\_Shutdown\_or\_Release} einordnen \cite{SecurityVulnerabilities}.
 
-Von dem Scan wird eine Datei erzeugt, die enthält welche Risikostellen gefunden wurden.
-Zudem ist in solcher Datei meist eine Priorisierung, wie schwerwiegend die Risikostellen sind, enthalten.
+Von dem Scan wird eine Datei erzeugt, die die gefundenen Risikostellen enthält.
+Zudem enthält die Datei meist eine Priorisierung, wie schwerwiegend die Risikostellen sind.
 
-Diese Datei stellt nun das Ergebnis des Scans da und liegt im \gls{glos:JSON} Format vor.
+Diese Datei stellt nun das Ergebnis des Scans dar und liegt im \gls{glos:JSON}-Format vor.
 
 Außerdem besitzen externe Tools wie Checkmarx oft eine Weboberfläche, in der Details eines Scans mit den genauen Zeilen an Code, die Risikostellen sind, eingesehen werden können.
-In diesen Rahmen gibt es dann die Möglichkeit diese Risikostellen als unbedenklich zu markieren.
+In diesem Rahmen gibt es die Möglichkeit, diese Risikostellen als unbedenklich zu markieren.
 Richtlinien beziehen sich oft darauf, wie viele von den Risikostellen als unbedenklich eingestuft werden müssen.
 
 \end{document}

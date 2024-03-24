@@ -2,7 +2,7 @@
 \begin{document}
 
 Bei der Entwicklung von dem Feature wurde viel lokal getestet, da Tests in \glspl{glos:pipeline} viel Zeit kosten.
-So war eine Herausforderungen, dass sich die geschriebenen Code Scripte anders in den beiden Umgebungen verhalten.
+So war eine Herausforderung, dass sich die geschriebenen Code-Scripte in den beiden Umgebungen unterschiedlich verhalten.
 
 \begin{figure}[ht]
     \centering
@@ -13,8 +13,8 @@ So war eine Herausforderungen, dass sich die geschriebenen Code Scripte anders i
 \end{figure}
 
 
-In dem Beispiel Script in Abbildung \ref{fig:codebad} ist zu sehen, wie mit einer standard Java Funktionalität die Auswertungsergebnisdatei gelesen wird.
-Dieses Implementierung funktioniert lokal problemlos, scheitert aber in einer \gls{glos:pipeline}, da diese Java Funktionalität nicht in der \gls{glos:pipeline} Umgebung verfügbar ist.
+In dem Beispiel-Script in Abbildung \ref{fig:codebad} ist zu sehen, wie mit einer Standard-Java-Funktionalität die Auswertungsergebnisdatei gelesen wird.
+Diese Implementierung funktioniert lokal problemlos, scheitert aber in einer \gls{glos:pipeline}, da diese Java Funktionalität nicht in der \gls{glos:pipeline} Umgebung verfügbar ist.
 
 \begin{figure}[ht]
     \centering
@@ -24,8 +24,8 @@ Dieses Implementierung funktioniert lokal problemlos, scheitert aber in einer \g
     \label{fig:codegood}
 \end{figure}
         
-Um dieses Problem zu umgehen, stehen dafür Funktionalitäten von der \gls{glos:pipeline} Umgebung zu Verfügung.
-Der Aufruf aus Abbildung \ref{fig:codegood} zeigt wie so eine Funktionalität benutzt werden kann.
+Um dieses Problem zu umgehen, stehen Funktionalitäten von der \gls{glos:pipeline}-Umgebung zur Verfügung.
+Der Aufruf aus Abbildung \ref{fig:codegood} zeigt wie, so eine Funktionalität benutzt werden kann.
 
 Bei dieser Implementierung ist zu beachten, dass sie vorerst nur in der \gls{glos:pipeline} funktioniert.
 Lokal besteht die Möglichkeit bei diesem Aufruf im Hintergrund den Code aus Abbildung \ref{fig:codebad} auszuführen, damit auch weiterhin getestet werden kann.
